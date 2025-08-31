@@ -4,6 +4,10 @@ markup=pango
 separator=true
 separator_block_width=15
 
+[network]
+command=$HOME/.config/i3blocks/scripts/network.sh
+interval=10
+
 # Volume block with icon and percentage
 [volume]
 label=🔊
@@ -26,6 +30,11 @@ interval=30
 signal=12  # Optional: For manual refresh if you add bindings
 markup=pango
 color=#FFFFFF  # Optional: Text color
+
+[memory]
+command=~/.config/i3blocks/scripts/memory.sh
+interval=10
+
 
 [time]
 label=🕒
