@@ -192,8 +192,8 @@ bar {
 
 # use brightnessctl to change brightness - (custom)
 set $refresh_brightness pkill -RTMIN+11 i3blocks
-bindsym $mod+Shift+F2 exec --no-startup-id brightnessctl set +5% && $refresh_brightness
-bindsym $mod+Shift+F3 exec --no-startup-id brightnessctl set 5%- && $refresh_brightness
+bindsym $mod+Shift+F3 exec --no-startup-id brightnessctl set +5% && $refresh_brightness
+bindsym $mod+Shift+F2 exec --no-startup-id brightnessctl set 5%- && $refresh_brightness
 
 # change volume - (custom)
 # Volume controls with i3blocks refresh (using PulseAudio via pactl)
