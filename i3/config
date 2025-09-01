@@ -180,21 +180,29 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3blocks -c ~/.config/i3blocks/config
-	position bottom
-	workspace_buttons yes
-	tray_output primary
-	font pango:FontAwesome 14
+        position bottom
+        workspace_buttons yes
+        tray_output primary
+        font pango:FontAwesome 14
 }
 
 
 #################################################
 # Customized configs
 
+##### Startup configs
+# Start dunst - notification handler
+exec --no-startup-id dunst
+# Save DBus Address on i3 Startup
+exec --no-startup-id echo $DBUS_SESSION_BUS_ADDRESS > ~/.dbus-session-address
+
+##### Brightness
 # use brightnessctl to change brightness - (custom)
 set $refresh_brightness pkill -RTMIN+11 i3blocks
 bindsym $mod+Shift+F3 exec --no-startup-id brightnessctl set +5% && $refresh_brightness
 bindsym $mod+Shift+F2 exec --no-startup-id brightnessctl set 5%- && $refresh_brightness
 
+##### Volume
 # change volume - (custom)
 # Volume controls with i3blocks refresh (using PulseAudio via pactl)
 set $refresh_volume pkill -RTMIN+10 i3blocks  # Signal 10 for volume block refresh
@@ -204,15 +212,25 @@ bindsym $mod+F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% &
 bindsym $mod+F4 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_volume
 bindsym $mod+Shift+F4 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_volume
 
-# CopyQ clipboard manager: runs on startup, toggle with $mod+Shift+F, floats at 1000x600
+##### Clipboard
+# CopyQ clipboard manager: runs on startup, toggle with $mod+Shift+F, floats at 1000x600T
 exec_always --no-startup-id copyq --start-server
 bindsym $mod+Shift+f exec --no-startup-id copyq toggle
 for_window [class="CopyQ"] floating enable
 for_window [class="CopyQ"] resize set 1000 600
 for_window [class="CopyQ"] border pixel 2
 
+##### Wallpaper
 # Wallpaper centered, no scaling - (hsetroot)
 exec_always --no-startup-id hsetroot -center "/home/uttamthegoat/Downloads/My Poster.jpg"
+
+##### Flameshot
+# Full screen
+bindsym $mod+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh full
+
+# Region
+bindsym $mod+Shift+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh region
+
 
 
 ################################################

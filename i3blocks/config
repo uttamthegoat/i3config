@@ -4,20 +4,28 @@ markup=pango
 separator=true
 separator_block_width=15
 
+
+[notifications]
+label=
+command=~/.config/i3blocks/scripts/notifications.sh
+interval=10  # Update every 10 seconds
+signal=10  # Optional: For manual refresh
+
 [network]
+label=
 command=$HOME/.config/i3blocks/scripts/network.sh
 interval=10
 
 # Volume block with icon and percentage
 [volume]
-label=🔊
+label=
 command=echo $(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -n1)
 interval=1
 signal=10  # Matches your refresh signal
 markup=pango  # Enables icon rendering
 
 [brightness]
-label=🔆
+label=
 command=BRIGHTNESS=$(brightnessctl get); MAX=$(brightnessctl max); PERCENT=$(( BRIGHTNESS * 100 / MAX )); printf "%d%%\n" "$PERCENT"
 interval=1
 signal=11  # Unique signal for refresh (different from volume's 10)
@@ -25,20 +33,23 @@ markup=pango
 color=#FFFFFF  # Optional: Set text color
 
 [battery]
-command=PERCENT=$(upower -i $(upower -e | grep BAT) | grep --color=never -E "percentage" | awk '{print substr($2, 1, length($2)-1)}'); printf "🔋 %d%%\n" "$PERCENT"
+label=
+command=PERCENT=$(upower -i $(upower -e | grep BAT) | grep --color=never -E "percentage" | awk '{print substr($2, 1, length($2)-1)}'); printf "%d%%\n" "$PERCENT"
 interval=30
 signal=12  # Optional: For manual refresh if you add bindings
 markup=pango
 color=#FFFFFF  # Optional: Text color
 
 [memory]
+label=
 command=~/.config/i3blocks/scripts/memory.sh
 interval=10
 
 
 [time]
-label=🕒
-command=date '+%A %d, %B | %H:%M'
+label=
+command=date '+%a %d, %b | %H:%M'
 interval=1  # Updates every second
 markup=pango
 color=#FFFFFF  # Optional: Text color
+
