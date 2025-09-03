@@ -222,12 +222,11 @@ for_window [class="CopyQ"] border pixel 2
 
 ##### Wallpaper
 # Wallpaper centered, no scaling - (hsetroot)
-exec_always --no-startup-id hsetroot -center "/home/uttamthegoat/Downloads/My Poster.jpg"
+exec_always --no-startup-id hsetroot -center "/home/uttamthegoat/.config/i3/wallpapers/Whitebeard Jolly Roger.png"
 
-##### Flameshot
+##### Screen Capture
 # Full screen
 bindsym $mod+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh full
-
 # Region
 bindsym $mod+Shift+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh region
 
