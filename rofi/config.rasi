@@ -1,0 +1,105 @@
+configuration {
+    modi: "drun,run,window";
+    font: "JetBrainsMono Nerd Font 12";
+    show-icons: true;
+    icon-theme: "Papirus";
+    disable-history: false;
+    hide-scrollbar: true;
+    fullscreen: false;
+    drun-display-format: "{icon} {name}";
+}
+
+window {
+    location: north;
+    anchor: north;
+    y-offset: 100px;        /* move it slightly down from the top */
+    width: 60%;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+* {
+    background: #1e1e2e;
+    foreground: #cdd6f4;
+    selected: #89b4fa;
+    active: #a6e3a1;
+    urgent: #f38ba8;
+
+    // force disable alternates
+    alternate-normal-background: #2a2a2a;
+    alternate-normal-foreground: #cdd6f4;
+    alternate-active-background: #2a2a2a;
+    alternate-active-foreground: #cdd6f4;
+    alternate-urgent-background: #2a2a2a;
+    alternate-urgent-foreground: #cdd6f4;
+
+    border: 0;
+    padding: 6;
+    margin: 0;
+    spacing: 2;
+    border-radius: 12px;
+}
+
+mainbox {
+    orientation: vertical;
+    spacing: 20;
+    children: [inputbar, listview];   /* put the inputbar *below* */
+    halign: center;                   /* center horizontally */
+    valign: center;                   /* center vertically */
+}
+
+listview {
+    layout: vertical;
+    columns: 4;          /* <-- 6 apps in a row */
+    lines: 6;            /* number of rows (adjust as you like) */
+    spacing: 20;         /* spacing between blocks */
+    cycle: false;
+    scrollbar: false;
+    fixed-columns: true; /* ensures grid stays aligned */
+}
+
+element {
+    orientation: vertical;   /* icon above text */
+    padding: 10;
+    border-radius: 12px;
+    background-color: #2a2a2a;
+    foreground: #cdd6f4;
+    spacing: 8;
+}
+
+
+element-icon {
+    size: 3em;   /* make icons bigger */
+}
+
+
+element alternate {
+    background-color: #2a2a2a;   // removes the alternating white rows
+    foreground: #cdd6f4;
+}
+
+
+element selected {
+    background-color: #89b4fa;
+    foreground: #1e1e2e;
+}
+
+inputbar {
+    spacing: 8;
+    padding: 12;
+    border-radius: 10px;
+    background: #11111b;
+    children: [prompt, entry];
+    width: 50%;
+    halign: center;
+}
+
+prompt {
+    enabled: false;
+}
+
+entry {
+    expand: true;
+    horizontal-align: 0.5;  /* centers typed text */
+}
+

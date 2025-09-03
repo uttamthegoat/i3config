@@ -1,0 +1,129 @@
+# Dunst configuration file (~/.config/dunst/dunstrc)
+# This is a full-fledged config with decent styling (dark theme inspired by Nord colors for a clean, modern look).
+# - Background: Dark gray-blue for subtlety.
+# - Foreground: Light text for readability.
+# - Frame: Subtle border.
+# - Progress bar: Visible and styled.
+# - Icons: Positioned left, with rounding.
+# - Close action: Right-click on notification (anywhere, including the ×) closes it and removes from history (mouse_right_click = remove_current).
+#   Modified: Added a visible "×" icon using Pango markup, styled red and positioned right to mimic a close button.
+#   - Click behavior: Right-click the × (or anywhere) to close + remove from history; left-click to just close.
+#   - Limitation: The × isn't independently clickable—Dunst treats the whole notification as one area[38][34].
+# - Shortcuts: Standard for closing (Ctrl+Space for single, Ctrl+Shift+Space for all).
+# - Other features: Notification history, stacking, recursive icon lookup, etc.
+# - Timeouts set to 60 seconds (1 minute) for auto-closing low and normal urgency notifications.
+#   Critical remains 0 (persistent) to ensure important alerts like battery warnings don't auto-dismiss; adjust if needed.
+# - New: Added task-specific rules for battery notifications (e.g., custom colors, formats, and timeouts).
+#   - Matches based on summary (from your notify-send script); adjust filters as needed.
+#   - Example: Battery low gets a red background and no timeout; full gets green and auto-closes after 30s.
+
+[global]
+    # General settings
+    monitor = 0  # Display on primary monitor (adjust as needed)
+    follow = none  # Don't follow mouse or keyboard focus
+    width = (0, 300)  # Dynamic width up to 300px
+    height = 100  # Fixed height for notifications
+    origin = top-right  # Position in top-right corner
+    offset = 10x50  # 10px from right, 50px from top (adjust for your bar)
+    scale = 0  # Auto-detect DPI
+    notification_limit = 0  # No limit on visible notifications
+    progress_bar = true  # Show progress bars
+    progress_bar_height = 10  # Progress bar height
+    progress_bar_frame_width = 1  # Frame around progress bar
+    progress_bar_min_width = 150  # Min width for progress bar
+    progress_bar_max_width = 200  # Max width for progress bar
+    progress_bar_corner_radius = 5  # Rounded corners for progress bar
+    progress_bar_corners = all  # Round all corners of progress bar
+    indicate_hidden = yes  # Show indicator for hidden notifications
+    transparency = 0  # Fully opaque (0-100, higher = more transparent)
+    separator_height = 2  # Separator between notifications
+    padding = 8  # Vertical padding
+    horizontal_padding = 8  # Horizontal padding
+    text_icon_padding = 0  # Padding between text and icon
+    frame_width = 2  # Border width
+    frame_color = "#434C5E"  # Border color (dark gray)
+    gap_size = 0  # No gaps between notifications (use if you want borders instead)
+    separator_color = frame  # Separator matches frame color
+    sort = yes  # Sort by urgency (descending)
+    idle_threshold = 120  # Show age if idle >120s
+    font = Monospace 10  # Default font (install a sans-serif font if needed)
+    line_height = 0  # Auto line height
+    markup = full  # Allow full HTML-like markup
+    format = "<b>%s</b><span foreground='red' font='12' rise='-10000' weight='bold'>  ×</span>\n%b"  # Modified: Added styled × icon (red, larger, positioned top-right via rise); right-click it to close + remove from history
+    alignment = left  # Left-align text
+    vertical_alignment = center  # Center vertically
+    show_age_threshold = 60  # Show age if older than 60s
+    ellipsize = middle  # Ellipsize long text in middle
+    ignore_newline = no  # Preserve newlines
+    stack_duplicates = true  # Stack identical notifications
+    hide_duplicate_count = false  # Show count of duplicates
+    show_indicators = yes  # Show (A) for actions, (U) for URLs
+    enable_recursive_icon_lookup = true  # Enable modern icon lookup
+    icon_theme = hicolor,Adwaita  # Icon themes (comma-separated)
+    icon_position = left  # Icon on left
+    min_icon_size = 32  # Scale up small icons
+    max_icon_size = 128  # Scale down large icons
+    icon_corner_radius = 5  # Rounded icon corners
+    icon_corners = all  # Round all icon corners
+    sticky_history = yes  # History notifications don't timeout
+    history_length = 20  # Keep 20 in history
+    dmenu = /usr/bin/dmenu -p dunst:  # dmenu for context menu
+    browser = /usr/bin/xdg-open  # Browser for URLs
+    always_run_script = true  # Run scripts even if suppressed
+    title = Dunst  # Window title
+    class = Dunst  # Window class
+    corner_radius = 8  # Rounded corners for notification window
+    corners = all  # Round all corners
+    ignore_dbusclose = false  # Respect dbus close
+    force_xwayland = false  # Don't force XWayland
+    force_xinerama = false  # Don't force Xinerama
+    mouse_left_click = close_current  # Left-click closes (dismisses without removing from history)
+    mouse_middle_click = do_action, close_current  # Middle-click does action and closes
+    mouse_right_click = remove_current  # Right-click closes and removes from history (requires Dunst >=1.10; fallback to close_current if unavailable)[38]
+
+[experimental]
+    per_monitor_dpi = false  # Experimental per-monitor DPI
+
+[urgency_low]
+    background = "#2E3440"  # Dark background
+    foreground = "#D8DEE9"  # Light text
+    frame_color = "#434C5E"  # Matching frame
+    timeout = 60  # Dismiss after 60s (1 minute)
+
+[urgency_normal]
+    background = "#2E3440"
+    foreground = "#D8DEE9"
+    frame_color = "#434C5E"
+    timeout = 60  # Dismiss after 60s (1 minute)
+
+[urgency_critical]
+    background = "#BF616A"  # Reddish for alerts
+    foreground = "#ECEFF4"  # Brighter text
+    frame_color = "#BF616A"
+    timeout = 0  # Never timeout critical (change to 60 if you want auto-close)
+
+# Task-specific rules start here
+[battery_low]  # Custom rule for low battery notifications
+    summary = "Battery Low"  # Filter: Matches if summary starts with "Battery Low" (case-sensitive; adjust to your script's exact text)
+    urgency = critical  # Modify: Set to critical urgency
+    background = "#FF0000"  # Red background for alert
+    foreground = "#FFFFFF"  # White text
+    frame_color = "#FF0000"  # Red frame
+    timeout = 0  # Never auto-close
+    format = "<b>%s ⚠️</b>\n%b"  # Custom format: Add warning emoji to summary
+
+[battery_full]  # Custom rule for full battery notifications
+    summary = "Battery Fully Charged"  # Filter: Matches if summary starts with "Battery Fully Charged"
+    urgency = normal  # Modify: Set to normal urgency
+    background = "#00FF00"  # Green background for success
+    foreground = "#000000"  # Black text
+    frame_color = "#00FF00"  # Green frame
+    timeout = 30  # Auto-close after 30s
+    format = "<b>%s 🔋</b>\n%b"  # Custom format: Add battery emoji to summary
+
+[shortcuts]
+    # Shortcuts are specified as [modifier+][modifier+]...[modifier+]key
+    close = ctrl+space  # Close current
+    close_all = ctrl+shift+space  # Close all
+    history = ctrl+grave  # Recall from history
+    context = ctrl+shift+period  # Context menu
