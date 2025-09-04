@@ -1,0 +1,83 @@
+configuration {
+    display-dmenu: "Power Menu";
+    font: "DejaVu Sans 18";
+    show-icons: false;
+}
+
+* {
+    background-color: #1e1e2a;
+    foreground: #cdd6f4;
+}
+
+/* Window */
+window {
+    width: 37%;
+    padding: 20px;
+    border: 2           px;
+    border-color: #89b4fa;
+    border-radius: 10px;
+    location: south;
+    anchor: south;
+    y-offset: -100px;
+}
+
+/* Disable input bar */
+inputbar {
+    enabled: false;
+}
+
+/* Listview in grid/tile layout */
+listview {
+    layout: vertical;
+    spacing: 15px;
+    columns: 5;       
+    lines: 1;          
+    cycle: false;
+    dynamic: false;     /* keeps grid fixed */
+    fixed-columns: true;
+    fixed-height: true;
+    padding: 10px;
+}
+
+/* Tile (element) */
+element {
+    padding: 20px;
+    border-radius: 100%;   /* makes it circular */
+    background-color: #2a2a2a;
+    color: #ffffff;
+    orientation: vertical;
+    expand: true;
+    width: 150px;          /* fixed width */
+    height: 150px;         /* fixed height */
+    horizontal-align: 0.5; /* center in grid cell */
+    vertical-align: 0.5;
+}
+
+/* Selected tile */
+element selected {
+        background-color: #89b4fa;
+	foreground: #1e1e2e;
+	border: 1px;
+	border-color: #1e1e2a;
+}
+
+/* Element text */
+element-text {
+    color: #ffffff;
+    border-radius: 100%;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    padding: 70px 0px;
+    border: 3px;
+    border-color: #89b4fa;
+}
+
+
+element-text selected {
+    color: #000000;
+    background-color: #89b4fa;
+    foreground: #1e1e2e;
+    border: 3px;
+    border-color: #1e1e2a;
+    font: "Ubuntu Mono Bold 14";
+}

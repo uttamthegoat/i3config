@@ -221,8 +221,8 @@ for_window [class="CopyQ"] resize set 1000 600
 for_window [class="CopyQ"] border pixel 2
 
 ##### Wallpaper
-# Wallpaper centered, no scaling - (hsetroot)
-exec --no-startup-id nitrogen --set-zoom-fill "~/Pictures/Wallpapers/IMAGES/My Poster.jpg"
+# Wallpaper centered, no scaling - (nitrogen)
+exec_always --no-startup-id nitrogen --restore
 
 ##### Screen Capture
 # Full screen

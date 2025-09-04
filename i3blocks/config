@@ -12,7 +12,6 @@ interval=10  # Update every 10 seconds
 signal=10  # Optional: For manual refresh
 
 [network]
-label=
 command=$HOME/.config/i3blocks/scripts/network.sh
 interval=10
 
@@ -52,4 +51,10 @@ command=date '+%a %d, %b | %H:%M'
 interval=1  # Updates every second
 markup=pango
 color=#FFFFFF  # Optional: Text color
+
+[power]
+command=~/.config/i3blocks/scripts/powermenu.sh
+interval=once
+signal=10
+
 
