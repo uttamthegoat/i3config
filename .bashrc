@@ -112,15 +112,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Colors
-BLUE="\[\033[1;34m\]"    # bright blue
-ORANGE="\[\033[38;5;208m\]"  # orange (using 256 color code)
-GREEN="\[\033[1;32m\]"   # bright green
-WHITE="\[\033[1;37m\]"   # bright white
+# Colors (better contrast black & white theme)
+LIGHTGRAY="\[\033[38;5;250m\]"  # lighter gray
+MEDIUMGRAY="\[\033[38;5;245m\]" # medium gray
+WHITE="\[\033[1;37m\]"          # bright white
 RESET="\[\033[0m\]"
 
-# Prompt styling
-PS1="${BLUE}\u${ORANGE}@${GREEN}\h${WHITE}:\w\$ ${RESET}"
+# Prompt styling (user@host:path$)
+PS1="${WHITE}\u${LIGHTGRAY}@${MEDIUMGRAY}\h${WHITE}:\w\$ ${RESET}"
 
 #autorun fastfetch at startup
 fastfetch

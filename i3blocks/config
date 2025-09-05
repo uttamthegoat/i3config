@@ -6,7 +6,6 @@ separator_block_width=15
 
 
 [notifications]
-label=
 command=~/.config/i3blocks/scripts/notifications.sh
 interval=10  # Update every 10 seconds
 signal=10  # Optional: For manual refresh

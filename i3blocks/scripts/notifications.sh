@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# Display count
-if [ "$BLOCK_BUTTON" = "1" ]; then  # Left-click
-  dunstctl history-pop  # Pop and show recent notifications
-fi
+case "$BLOCK_BUTTON" in
+    1) dunstctl history-pop   ;;  # left click – show recent notifications
+    3) dunstctl history-clear  ;;  # right click – clear history
+esac
 
-echo "$(dunstctl count waiting)"
+
+total=$(dunstctl history | wc -l)
+printf ""

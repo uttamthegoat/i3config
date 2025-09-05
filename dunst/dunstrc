@@ -42,14 +42,14 @@
     text_icon_padding = 0  # Padding between text and icon
     frame_width = 2  # Border width
     frame_color = "#434C5E"  # Border color (dark gray)
-    gap_size = 0  # No gaps between notifications (use if you want borders instead)
+    gap_size = 8  # No gaps between notifications (use if you want borders instead)
     separator_color = frame  # Separator matches frame color
     sort = yes  # Sort by urgency (descending)
     idle_threshold = 120  # Show age if idle >120s
     font = Monospace 10  # Default font (install a sans-serif font if needed)
     line_height = 0  # Auto line height
     markup = full  # Allow full HTML-like markup
-    format = "<b>%s</b><span foreground='red' font='12' rise='-10000' weight='bold'>  ×</span>\n%b"  # Modified: Added styled × icon (red, larger, positioned top-right via rise); right-click it to close + remove from history
+    format = "<b>%s</b>\n%b"
     alignment = left  # Left-align text
     vertical_alignment = center  # Center vertically
     show_age_threshold = 60  # Show age if older than 60s
@@ -77,9 +77,9 @@
     ignore_dbusclose = false  # Respect dbus close
     force_xwayland = false  # Don't force XWayland
     force_xinerama = false  # Don't force Xinerama
-    mouse_left_click = close_current  # Left-click closes (dismisses without removing from history)
-    mouse_middle_click = do_action, close_current  # Middle-click does action and closes
-    mouse_right_click = remove_current  # Right-click closes and removes from history (requires Dunst >=1.10; fallback to close_current if unavailable)[38]
+    mouse_left_click = exec dunstctl history-clear
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
 
 [experimental]
     per_monitor_dpi = false  # Experimental per-monitor DPI
@@ -127,3 +127,6 @@
     close_all = ctrl+shift+space  # Close all
     history = ctrl+grave  # Recall from history
     context = ctrl+shift+period  # Context menu
+
+
+

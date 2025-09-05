@@ -4,40 +4,64 @@
         "separator": ""
     },
     "modules": [
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
+        { "type": "break" },       // ← 1 blank line
         {
             "type": "kernel",
             "key": "   Distro   ",
+            "keyColor": "white",
         },
         {
             "type": "cpu",
-            "key": "   CPU      "
+            "key": "   CPU      ",
+            "keyColor": "white"
         },
         {
             "type": "gpu",
-            "key": "   GPU      "
+            "key": "   GPU      ",
+            "keyColor": "white"
         },
         {
             "type": "memory",
             "key": "   RAM      ",
-            "keyColor": "magenta"
+            "keyColor": "white"
         },
         {
             "type": "disk",
             "key": "   Disk     ",
-            "keyColor": "green"
+            "keyColor": "white"
         },
         {
             "type": "battery",
             "key": "   Battery  ",
-            "keyColor": "yellow"
-        },
+            "keyColor": "white"
+        }
     ],
     "logo": {
-        "source": "debian",
+        "source": "~/.config/fastfetch/one_piece.txt",
         "padding": {
             "right": 2
         },
-        "height": 30,
-        "width": 60
+	  "height": 50,      // was 30
+	  "width": 100,
+        "color": {
+            "1": "white",
+            "2": "white",
+            "3": "white",
+            "4": "white",
+            "5": "white",
+            "6": "white"
+        }
     }
 }
