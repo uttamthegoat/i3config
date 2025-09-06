@@ -5,6 +5,5 @@ cp -r ~/.config/rofi/. ~/Code/i3config/rofi/
 cp -r ~/.config/fastfetch/. ~/Code/i3config/fastfetch/
 cp -r ~/.config/kitty/. ~/Code/i3config/kitty/
 cp ~/.bashrc ~/Code/i3config/.bashrc
-
-
-
+cp ~/.config/systemd/user/* ~/Code/i3config/services/
+cp -r ~/.config/mpv/. ~/Code/i3config/mpv/

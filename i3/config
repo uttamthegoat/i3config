@@ -209,6 +209,9 @@ bar {
 exec --no-startup-id dunst
 # Save DBus Address on i3 Startup
 exec --no-startup-id echo $DBUS_SESSION_BUS_ADDRESS > ~/.dbus-session-address
+# usb connection notifications
+exec_always --no-startup-id ~/.config/i3/scripts/usb_notify.sh
+
 
 ##### Brightness
 # use brightnessctl to change brightness - (custom)
@@ -257,13 +260,12 @@ bindsym $mod+Shift+f exec --no-startup-id thunar
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3blocks/scripts/powermenu.sh launch
 
 # Window styling
-# class                 border   background text     indicator child_border
-client.focused          #000000  #000000    #ffffff  #000000   #000000
-client.focused_inactive #000000  #000000    #aaaaaa  #000000   #000000
-client.unfocused        #000000  #000000    #aaaaaa  #000000   #000000
-client.urgent           #000000  #000000    #ffffff  #ff0000   #000000
-client.placeholder      #000000  #000000    #ffffff  #000000   #000000
-
+# class                 border    background text     indicator child_border
+client.focused          #aaaaaa   #000000    #ffffff  #aaaaaa   #aaaaaa
+client.focused_inactive #666666   #000000    #aaaaaa  #666666   #666666
+client.unfocused        #666666   #000000    #aaaaaa  #666666   #666666
+client.urgent           #ff0000   #000000    #ffffff  #ff0000   #ff0000
+client.placeholder      #666666   #000000    #ffffff  #666666   #666666
 
 
 

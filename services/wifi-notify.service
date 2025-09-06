@@ -1,0 +1,10 @@
+[Unit]
+Description=Notify when Wi-Fi connects
+After=network.target
+
+[Service]
+ExecStart=/home/uttam/.config/i3/wifi-notify.sh
+Restart=always
+
+[Install]
+WantedBy=default.target
