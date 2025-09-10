@@ -49,7 +49,7 @@
         }
     ],
     "logo": {
-        "source": "~/.config/fastfetch/one_piece_terminal_logo.png",
+        "source": "debian",
         "padding": {
             "right": 2
         },

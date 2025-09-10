@@ -10,10 +10,10 @@ configuration {
 }
 
 window {
-    location: north;
-    anchor: north;
+    location: center;
+    anchor: center;
     y-offset: 100px;        /* move it slightly down from the top */
-    width: 60%;
+    width: 20%;
     border-radius: 16px;
     padding: 20px;
 }
@@ -50,17 +50,17 @@ mainbox {
 
 listview {
     layout: vertical;
-    columns: 4;          /* <-- 6 apps in a row */
+    columns: 1;          /* <-- 6 apps in a row */
     lines: 6;            /* number of rows (adjust as you like) */
     spacing: 20;         /* spacing between blocks */
-    cycle: false;
-    scrollbar: false;
+    cycle: true;
+    scrollbar: true;
     fixed-columns: true; /* ensures grid stays aligned */
 }
 
 element {
-    orientation: vertical;   /* icon above text */
-    padding: 10;
+    orientation: horizontal;   /* icon above text */
+    padding: 5px;
     border-radius: 12px;
     background-color: #2a2a2a;
     foreground: #cdd6f4;
@@ -72,12 +72,19 @@ element-icon {
     size: 3em;   /* make icons bigger */
 }
 
+/* Element text */
+element-text {
+    color: #ffffff;
+
+    vertical-align: 0.5;
+    border-color: #89b4fa;
+}
+
 
 element alternate {
     background-color: #2a2a2a;   // removes the alternating white rows
     foreground: #cdd6f4;
 }
-
 
 element selected {
     background-color: #89b4fa;
@@ -93,7 +100,6 @@ inputbar {
     width: 50%;
     halign: center;
 }
-
 prompt {
     enabled: false;
 }
