@@ -273,7 +273,7 @@ client.placeholder      #666666   #000000    #ffffff  #666666   #666666
 # Remove borders and titlebars globally
 for_window [class="^.*"] border pixel 0
 # Gaps between windows
-gaps inner 2
+gaps inner 8
 
 ##### Compositor
 # Start/Stop Picom
