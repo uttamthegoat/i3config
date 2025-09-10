@@ -7,3 +7,4 @@ cp -r ~/.config/kitty/. ~/Code/i3config/kitty/
 cp ~/.bashrc ~/Code/i3config/.bashrc
 cp ~/.config/systemd/user/* ~/Code/i3config/services/
 cp -r ~/.config/mpv/. ~/Code/i3config/mpv/
+cp -r ~/.config/picom/. ~/Code/i3config/picom/

@@ -259,14 +259,25 @@ bindsym $mod+Shift+f exec --no-startup-id thunar
 # Power menu shortcut (e.g., Mod+Shift+P)
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3blocks/scripts/powermenu.sh launch
 
-# Window styling
+##### Task manager
+# open htop in terminal
+bindsym Control+Shift+Escape exec --no-startup-id kitty -e htop
+
+##### Window styling
 # class                 border    background text     indicator child_border
 client.focused          #aaaaaa   #000000    #ffffff  #aaaaaa   #aaaaaa
 client.focused_inactive #666666   #000000    #aaaaaa  #666666   #666666
 client.unfocused        #666666   #000000    #aaaaaa  #666666   #666666
 client.urgent           #ff0000   #000000    #ffffff  #ff0000   #ff0000
 client.placeholder      #666666   #000000    #ffffff  #666666   #666666
+# Remove borders and titlebars globally
+for_window [class="^.*"] border pixel 0
+# Gaps between windows
+gaps inner 2
 
+##### Compositor
+# Start/Stop Picom
+bindsym $mod+p exec --no-startup-id bash -c "pgrep -x picom && pkill -x picom || picom -b"
 
 
 ################################################
