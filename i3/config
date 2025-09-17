@@ -252,8 +252,8 @@ bindsym $mod+Shift+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 ##### File Manager
-# Thunar
-bindsym $mod+Shift+f exec --no-startup-id thunar
+# dolphin
+bindsym $mod+Shift+f exec --no-startup-id dolphin
 
 ##### Power menu
 # Power menu shortcut (e.g., Mod+Shift+P)
