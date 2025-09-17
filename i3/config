@@ -178,27 +178,27 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3blocks
 # finds out, if available)
-bar {
-        status_command i3blocks -c ~/.config/i3blocks/config
-        position bottom
-        workspace_buttons yes
-	strip_workspace_numbers yes
-        tray_output primary
-        font pango:FontAwesome 14
+# bar {
+#         status_command i3blocks -c ~/.config/i3blocks/config
+#         position bottom
+#         workspace_buttons yes
+# 	strip_workspace_numbers yes
+#         tray_output primary
+#         font pango:FontAwesome 14
 
-        colors {
-                background #000000
-                statusline #ffffff
-                separator  #555555
+#         colors {
+#                 background #000000
+#                 statusline #ffffff
+#                 separator  #555555
 
-                # Workspaces
-                focused_workspace  #ffffff #ffffff #2e2e2e   # white border, white bg, dark text
-                active_workspace   #ffffff #2e2e2e #ffffff   # white border, dark bg, white text
-                inactive_workspace #ffffff #2e2e2e #ffffff   # same as active
-                urgent_workspace   #ff4444 #ff4444 #ffffff   # urgent = red highlight
-                binding_mode       #888888 #888888 #000000   # dim gray for binding mode
-        }
-}
+#                 # Workspaces
+#                 focused_workspace  #ffffff #ffffff #2e2e2e   # white border, white bg, dark text
+#                 active_workspace   #ffffff #2e2e2e #ffffff   # white border, dark bg, white text
+#                 inactive_workspace #ffffff #2e2e2e #ffffff   # same as active
+#                 urgent_workspace   #ff4444 #ff4444 #ffffff   # urgent = red highlight
+#                 binding_mode       #888888 #888888 #000000   # dim gray for binding mode
+#         }
+# }
 
 
 #################################################
@@ -211,6 +211,8 @@ exec --no-startup-id dunst
 exec --no-startup-id echo $DBUS_SESSION_BUS_ADDRESS > ~/.dbus-session-address
 # usb connection notifications
 exec_always --no-startup-id ~/.config/i3/scripts/usb_notify.sh
+# Launch Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 
 ##### Brightness
@@ -257,11 +259,15 @@ bindsym $mod+Shift+f exec --no-startup-id dolphin
 
 ##### Power menu
 # Power menu shortcut (e.g., Mod+Shift+P)
-bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3blocks/scripts/powermenu.sh launch
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/powermenu.sh launch
 
 ##### Task manager
 # open htop in terminal
 bindsym Control+Shift+Escape exec --no-startup-id kitty -e htop
+
+##### Network manager
+# open nmtui in terminal
+bindsym $mod+Shift+n exec --no-startup-id kitty -e nmtui
 
 ##### Window styling
 # class                 border    background text     indicator child_border
