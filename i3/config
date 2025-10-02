@@ -235,6 +235,7 @@ bindsym $mod+Shift+F4 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE
 # CopyQ clipboard manager: runs on startup, toggle with $mod+Shift+V    , floats at 1000x600T
 exec_always --no-startup-id copyq --start-server
 bindsym $mod+Shift+v exec --no-startup-id copyq toggle
+bindsym --whole-window button2 exec --no-startup-id copyq paste
 for_window [class="CopyQ"] floating enable
 for_window [class="CopyQ"] resize set 1000 600
 for_window [class="CopyQ"] border pixel 2

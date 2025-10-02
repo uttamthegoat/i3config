@@ -122,4 +122,5 @@ RESET="\[\033[0m\]"
 PS1="${WHITE}\u${LIGHTGRAY}@${MEDIUMGRAY}\h${WHITE}:\w\$ ${RESET}"
 
 #autorun fastfetch at startup
-fastfetch
+#fastfetchexport PATH=$PATH:/usr/local/node-v20.10.0/bin
+export PATH=$PATH:/usr/local/node-v20.10.0/bin
