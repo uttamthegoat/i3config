@@ -21,6 +21,9 @@ command=echo $(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -n1
 interval=1
 signal=10  # Matches your refresh signal
 markup=pango  # Enables icon rendering
+# Scroll commands (add these lines)
+scroll_up=exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+scroll_down=exec pactl set-sink-volume @DEFAULT_SINK@ -1%
 
 [brightness]
 label=
